@@ -1,17 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
-import re
 import pandas as pd
-import numpy as np
 import os
-import signal
-import sys
-from collections.abc import Mapping
-import json
 
 specialnumbers = [11, 13, 14, 16, 20, 22, 28, 29, 30, 32, 33, 34, 36, 37, 39, 40, 41, 42, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55]
 specialnumbers2 = [8, 9, 10, 13, 14, 16, 18, 20, 26, 27, 28, 32, 35, 39, 40, 41, 46, 50, 51, 52, 53, 54, 55, 58, 60, 62, 65, 71, 73, 74, 90, 91]
 
+link = "https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers"
 
 def get_closest_smaller(number, data_list):
     filtered_data = [x for x in range(number) if x not in data_list]
@@ -275,6 +270,87 @@ class Table5(Table):
         string = input("Enter the name of the file: ")
         name = string + ".csv"
         self.df.to_csv(name,index = False)
-table1 = Table5("https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers")
-table1.df = table1.get_table_head()
-table1.df = table1.get_table()
+
+print("Welcome to the Champions League Scraper. Select one of the following options:\n1. All-time Champions League top scorers\n2. Top Scorers by season\n3. Players with the most Champions League trophies\n4. Clubs with the most Champions League trophies\n5. Countries with the most Champions League trophies\n5. Exit\n")
+while(1):
+    while(1):
+        print("Enter your choice: 1. All-time Champions League top scorers\n2. Top Scorers by season\n3. Players with the most Champions League trophies\n4. Clubs with the most Champions League trophies\n5. Countries with the most Champions League trophies\n6. Exit")
+        choice = int(input("Enter your choice: "))
+        if(choice == 1 or choice == 2 or choice == 3 or choice == 4 or choice == 5 or choice == 6):
+            os.system('cls')
+            break
+        print("Invalid choice. Please enter a valid choice.")
+    match(choice):
+        case 1:
+            table1 = Table1(link)
+            table1.df = table1.get_table()
+            print(table1.df)
+            print("Press 1 to save the data to a csv file or 2 to exit.")
+            while(1):
+                choice = int(input("Enter your choice: "))
+                if(choice == 1 or choice == 2):
+                    os.system('cls')
+                    break
+                print("Invalid choice. Please enter a valid choice.")
+            if(choice == 1):
+                table1.print_to_csv()
+                print("Data saved to csv file.")
+        case 2:
+            table2 = Table2(link)
+            table2.df = table2.get_table()
+            print(table2.df)
+            print("Press 1 to save the data to a csv file or 2 to exit.")
+            while(1):
+                choice = int(input("Enter your choice: "))
+                if(choice == 1 or choice == 2):
+                    os.system('cls')
+                    break
+                print("Invalid choice. Please enter a valid choice.")
+            if(choice == 1):
+                table2.print_to_csv()
+                print("Data saved to csv file.")
+        case 3:
+            table3 = Table3(link)
+            table3.df = table3.get_table()
+            print(table3.df)
+            print("Press 1 to save the data to a csv file or 2 to exit.")
+            while(1):
+                choice = int(input("Enter your choice: "))
+                if(choice == 1 or choice == 2):
+                    os.system('cls')
+                    break
+                print("Invalid choice. Please enter a valid choice.")
+            if(choice == 1):
+                table3.print_to_csv()
+                print("Data saved to csv file.")
+        case 4:
+            table4 = Table4(link)
+            table4.df = table4.get_table()
+            print(table4.df)
+            print("Press 1 to save the data to a csv file or 2 to exit.")
+            while(1):
+                choice = int(input("Enter your choice: "))
+                if(choice == 1 or choice == 2):
+                    os.system('cls')
+                    break
+                print("Invalid choice. Please enter a valid choice.")
+            if(choice == 1):
+                table4.print_to_csv()
+                print("Data saved to csv file.")
+        case 5:
+            table5 = Table5(link)
+            table5.df = table5.get_table()
+            print(table5.df)
+            print("Press 1 to save the data to a csv file or 2 to exit.")
+            while(1):
+                choice = int(input("Enter your choice: "))
+                if(choice == 1 or choice == 2):
+                    os.system('cls')
+                    break
+                print("Invalid choice. Please enter a valid choice.")
+            if(choice == 1):
+                table5.print_to_csv()
+                print("Data saved to csv file.")
+        case 6:
+            print("Thanks for using the Champions Scraper. Web scraper made by Rares Catana, first year student at the Faculty of Automation and Computers, UPT, \nfrom the CTI-RO specialization.")
+            exit(0)
