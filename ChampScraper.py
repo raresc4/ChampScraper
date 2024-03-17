@@ -199,13 +199,82 @@ class Table4(Table):
         string = input("Enter the name of the file: ")
         name = string + ".csv"
         self.df.to_csv(name,index = False)
-#table1 = Table4("https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers")
-#table1.df = table1.get_table_head()
-#table1.df = table1.get_table()
-#print(table1.df)
-#soup = get_soup("https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers")
-#table = soup.find_all("table")
-#table0 = table[3]
-#print(table0.find_all("tr")[23].find_all("th")[0].get_text().strip())
-#print(table0.find_all("tr")[23].find_all("td")[0].get_text().strip())
-#print(table0.find_all("tr")[23].find_all("td")[1].get_text().strip())
+
+class Table5(Table):
+    def __init__(self,url,df = None):
+        super().__init__(url)
+        self.df = pd.DataFrame(columns = self.get_table_head())
+    def get_table_head(self):
+        soup = self.get_soup()
+        table = soup.find_all("table")
+        title = table[4].find_all("tr")[0]
+        list1 = [th.get_text().strip() for th in title.find_all("th")]
+        return list1
+    def get_table(self):
+        soup = self.get_soup()
+        table = soup.find_all("table")
+        table0 = table[4]
+        db = pd.DataFrame(columns = self.get_table_head())
+        c = 0
+        for i in range(1,3):
+            title = table0.find_all("tr")[i]
+            list1 = [title.find_all("th")[0].get_text().strip(),title.find_all("td")[0].get_text().strip(),title.find_all("td")[1].get_text().strip()]
+            db.loc[c] = list1
+            c += 1
+        title = table0.find_all("tr")[3]
+        list1 = [title.find_all("th")[0].get_text().strip(),table0.find_all("tr")[2].find_all("td")[0].get_text().strip(),title.find_all("td")[0].get_text().strip()]
+        db.loc[c] = list1
+        c += 1
+        for i in range(4,6):
+            title = table0.find_all("tr")[i]
+            list1 = [title.find_all("th")[0].get_text().strip(),title.find_all("td")[0].get_text().strip(),title.find_all("td")[1].get_text().strip()]
+            db.loc[c] = list1
+            c += 1
+        title = table0.find_all("tr")[6]
+        list1 = [title.find_all("th")[0].get_text().strip(),table0.find_all("tr")[5].find_all("td")[0].get_text().strip(),title.find_all("td")[0].get_text().strip()]
+        db.loc[c] = list1
+        c += 1
+        title = table0.find_all("tr")[7]
+        list1 = [title.find_all("th")[0].get_text().strip(),title.find_all("td")[0].get_text().strip(),title.find_all("td")[1].get_text().strip()]
+        db.loc[c] = list1
+        c += 1
+        for i in  range(8,11):
+            title = table0.find_all("tr")[i]
+            list1 = [title.find_all("th")[0].get_text().strip(),table0.find_all("tr")[7].find_all("td")[0].get_text().strip(),title.find_all("td")[0].get_text().strip()]
+            db.loc[c] = list1
+            c += 1
+        for i in range(11,13):
+            title = table0.find_all("tr")[i]
+            list1 = [title.find_all("th")[0].get_text().strip(),title.find_all("td")[0].get_text().strip(),title.find_all("td")[1].get_text().strip()]
+            db.loc[c] = list1
+            c += 1
+        title = table0.find_all("tr")[13]
+        list1 = [title.find_all("th")[0].get_text().strip(),table0.find_all("tr")[12].find_all("td")[0].get_text().strip(),title.find_all("td")[0].get_text().strip()]
+        db.loc[c] = list1
+        c += 1
+        title = table0.find_all("tr")[14]
+        list1 = [title.find_all("th")[0].get_text().strip(),title.find_all("td")[0].get_text().strip(),title.find_all("td")[1].get_text().strip()]
+        db.loc[c] = list1
+        c += 1
+        for i in range(15,18):
+            title = table0.find_all("tr")[i]
+            list1 = [title.find_all("th")[0].get_text().strip(),table0.find_all("tr")[14].find_all("td")[0].get_text().strip(),title.find_all("td")[0].get_text().strip()]
+            db.loc[c] = list1
+            c += 1
+        title = table0.find_all("tr")[18]
+        list1 = [title.find_all("th")[0].get_text().strip(),title.find_all("td")[0].get_text().strip(),title.find_all("td")[1].get_text().strip()]
+        db.loc[c] = list1
+        c += 1
+        for i in range(18,30):
+            title = table0.find_all("tr")[i]
+            list1 = [title.find_all("th")[0].get_text().strip(),table0.find_all("tr")[18].find_all("td")[0].get_text().strip(),title.find_all("td")[0].get_text().strip()]
+            db.loc[c] = list1
+            c += 1
+        return db
+    def print_to_csv(self):
+        string = input("Enter the name of the file: ")
+        name = string + ".csv"
+        self.df.to_csv(name,index = False)
+table1 = Table5("https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers")
+table1.df = table1.get_table_head()
+table1.df = table1.get_table()
