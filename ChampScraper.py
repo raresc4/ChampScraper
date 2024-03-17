@@ -8,17 +8,6 @@ specialnumbers2 = [8, 9, 10, 13, 14, 16, 18, 20, 26, 27, 28, 32, 35, 39, 40, 41,
 
 link = "https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers"
 
-def get_closest_smaller(number, data_list):
-    filtered_data = [x for x in range(number) if x not in data_list]
-    if not filtered_data:
-        return None
-    return max(filtered_data)
-
-def get_soup(url): 
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, "html.parser")
-    return soup
-
 class Table:
     def __init__(self,url):
         self.url = url
