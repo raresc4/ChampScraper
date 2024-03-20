@@ -260,7 +260,6 @@ class Table5(Table):
         name = string + ".csv"
         self.df.to_csv(name,index = False)
 
-print("Welcome to the Champions League Scraper. Select one of the following options:\n1. All-time Champions League top scorers\n2. Top Scorers by season\n3. Players with the most Champions League trophies\n4. Clubs with the most Champions League trophies\n5. Countries with the most Champions League trophies\n5. Exit\n")
 while(1):
     while(1):
         print("Enter your choice: 1. All-time Champions League top scorers\n2. Top Scorers by season\n3. Players with the most Champions League trophies\n4. Clubs with the most Champions League trophies\n5. Countries with the most Champions League trophies\n6. Exit")
