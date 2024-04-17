@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import os
 
-specialnumbers = [11, 13, 14, 16, 20, 22, 28, 29, 30, 32, 33, 34, 36, 37, 39, 40, 41, 42, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55]
+specialnumbers = [11, 12, 13, 14, 16, 20, 22, 28, 29, 30, 32, 33, 34, 36, 37, 38, 40, 41, 42, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55]
 specialnumbers2 = [8, 9, 10, 13, 14, 16, 18, 20, 26, 27, 28, 32, 35, 39, 40, 41, 46, 50, 51, 52, 53, 54, 55, 58, 60, 62, 65, 71, 73, 74, 90, 91]
 
 link = "https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers"
