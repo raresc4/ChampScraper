@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import os
 
-specialnumbers = [11, 12, 13, 14, 16, 20, 22, 28, 29, 30, 32, 33, 34, 36, 37, 38, 40, 41, 42, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55]
+specialnumbers = [11,12, 13, 14, 16, 20, 22, 28, 29, 30, 32, 33, 34, 36, 37, 38, 40, 41, 42, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55]
 specialnumbers2 = [8, 9, 10, 13, 14, 16, 18, 20, 26, 27, 28, 32, 35, 39, 40, 41, 46, 50, 51, 52, 53, 54, 55, 58, 60, 62, 65, 71, 73, 74, 90, 91]
 
 link = "https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers"
@@ -263,11 +263,13 @@ class Table5(Table):
 while(1):
     while(1):
         print("Enter your choice: 1. All-time Champions League top scorers\n2. Top Scorers by season\n3. Players with the most Champions League trophies\n4. Clubs with the most Champions League trophies\n5. Countries with the most Champions League trophies\n6. Exit")
-        choice = int(input("Enter your choice: "))
-        if(choice == 1 or choice == 2 or choice == 3 or choice == 4 or choice == 5 or choice == 6):
-            os.system('cls')
-            break
-        print("Invalid choice. Please enter a valid choice.")
+        try:
+            choice = int(input("Enter your choice: "))
+            if(choice == 1 or choice == 2 or choice == 3 or choice == 4 or choice == 5 or choice == 6):
+                os.system('cls')
+                break
+        except:
+            print("Invalid choice. Please enter a valid choice.")
     match(choice):
         case 1:
             table1 = Table1(link)
@@ -275,11 +277,13 @@ while(1):
             print(table1.df)
             print("Press 1 to save the data to a csv file or 2 to exit.")
             while(1):
-                choice = int(input("Enter your choice: "))
-                if(choice == 1 or choice == 2):
-                    os.system('cls')
-                    break
-                print("Invalid choice. Please enter a valid choice.")
+                try:
+                    choice = int(input("Enter your choice: "))
+                    if(choice == 1 or choice == 2):
+                        os.system('cls')
+                        break
+                except:
+                    print("Invalid choice. Please enter a valid choice.")
             if(choice == 1):
                 table1.print_to_csv()
                 print("Data saved to csv file.")
@@ -289,11 +293,13 @@ while(1):
             print(table2.df)
             print("Press 1 to save the data to a csv file or 2 to exit.")
             while(1):
-                choice = int(input("Enter your choice: "))
-                if(choice == 1 or choice == 2):
-                    os.system('cls')
-                    break
-                print("Invalid choice. Please enter a valid choice.")
+                try:
+                    choice = int(input("Enter your choice: "))
+                    if(choice == 1 or choice == 2):
+                        os.system('cls')
+                        break
+                except:
+                    print("Invalid choice. Please enter a valid choice.")
             if(choice == 1):
                 table2.print_to_csv()
                 print("Data saved to csv file.")
@@ -303,11 +309,13 @@ while(1):
             print(table3.df)
             print("Press 1 to save the data to a csv file or 2 to exit.")
             while(1):
-                choice = int(input("Enter your choice: "))
-                if(choice == 1 or choice == 2):
-                    os.system('cls')
-                    break
-                print("Invalid choice. Please enter a valid choice.")
+                try:
+                    choice = int(input("Enter your choice: "))
+                    if(choice == 1 or choice == 2):
+                        os.system('cls')
+                        break
+                except:
+                    print("Invalid choice. Please enter a valid choice.")
             if(choice == 1):
                 table3.print_to_csv()
                 print("Data saved to csv file.")
@@ -317,11 +325,13 @@ while(1):
             print(table4.df)
             print("Press 1 to save the data to a csv file or 2 to exit.")
             while(1):
-                choice = int(input("Enter your choice: "))
-                if(choice == 1 or choice == 2):
-                    os.system('cls')
-                    break
-                print("Invalid choice. Please enter a valid choice.")
+                try:
+                    choice = int(input("Enter your choice: "))
+                    if(choice == 1 or choice == 2):
+                        os.system('cls')
+                        break
+                except:
+                    print("Invalid choice. Please enter a valid choice.")
             if(choice == 1):
                 table4.print_to_csv()
                 print("Data saved to csv file.")
@@ -331,11 +341,13 @@ while(1):
             print(table5.df)
             print("Press 1 to save the data to a csv file or 2 to exit.")
             while(1):
-                choice = int(input("Enter your choice: "))
-                if(choice == 1 or choice == 2):
-                    os.system('cls')
-                    break
-                print("Invalid choice. Please enter a valid choice.")
+                try:
+                    choice = int(input("Enter your choice: "))
+                    if(choice == 1 or choice == 2):
+                        os.system('cls')
+                        break
+                except:
+                    print("Invalid choice. Please enter a valid choice.")
             if(choice == 1):
                 table5.print_to_csv()
                 print("Data saved to csv file.")
