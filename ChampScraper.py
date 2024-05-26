@@ -7,6 +7,7 @@ specialnumbers = [11,12, 14, 16, 20, 22, 28, 29, 30, 32, 33, 34, 35, 37, 38, 40,
 specialnumbers2 = [8, 9, 10, 13, 14, 16, 18, 20, 26, 27, 28, 32, 35, 39, 40, 41, 46, 50, 51, 52, 53, 54, 55, 58, 60, 62, 65, 71, 73, 74, 90, 91]
 
 link = "https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers"
+link = "https://en.wikipedia.org/wiki/List_of_UEFA_Champions_League_top_scorers"
 
 class Table:
     def __init__(self,url):
